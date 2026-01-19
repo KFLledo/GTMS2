@@ -21,5 +21,65 @@ namespace GTMS2.Resources
         {
 
         }
+
+        private void year1Student_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void year2Student_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void year3Student_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void year4Student_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void semester1Student_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void semester2Student_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void returntoYear_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void midtermsStudent_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void finalsStudent_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void returntoSemester_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void verified_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nonVerified_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -33,5 +33,15 @@ namespace GTMS2
             signupPanel.Visible = false;
             loginPanel.Visible = true;
         }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void signupButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

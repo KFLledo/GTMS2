@@ -133,6 +133,7 @@
             this.signupButton.TabIndex = 20;
             this.signupButton.Text = "Sign Up";
             this.signupButton.UseVisualStyleBackColor = false;
+            this.signupButton.Click += new System.EventHandler(this.signupButton_Click);
             // 
             // loginRedirect
             // 
@@ -389,6 +390,7 @@
             this.loginButton.TabIndex = 20;
             this.loginButton.Text = "Log In";
             this.loginButton.UseVisualStyleBackColor = false;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // signupRedirect
             // 
@@ -482,8 +484,8 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.signupPanel);
+            this.Controls.Add(this.loginPanel);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
