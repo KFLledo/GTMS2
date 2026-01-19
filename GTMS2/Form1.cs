@@ -1,4 +1,5 @@
 ﻿using GTMS2.Resources;
+using Microsoft.VisualBasic;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -15,11 +16,16 @@ namespace GTMS2
 {
     public partial class LoginSignup : Form
     {
-        string connectionString = "server=localhost;database=gtms2;uid=root;pwd=;";
+        // 1. This is just the text (the connection string)
+        string connStringText = "server=localhost;database=gtms2;uid=root;pwd=;";
+
+        // 2. This is the actual Connection Object
+        MySqlConnection conn;
 
         public LoginSignup()
         {
             InitializeComponent();
+            conn = new MySqlConnection(connStringText);
         }
 
         private void loginPanel_Paint(object sender, PaintEventArgs e)
@@ -38,11 +44,21 @@ namespace GTMS2
             signupPanel.Visible = false;
             loginPanel.Visible = true;
         }
-
+        private string GetGlobalInstructorPasskey()
+        {
+            using (MySqlConnection conn = new MySqlConnection(connStringText))
+            {
+                conn.Open();
+                // You can create a simple table 'settings' with one row for this
+                string query = "SELECT passkey_value FROM system_settings WHERE setting_name = 'instructor_pin'";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                return cmd.ExecuteScalar()?.ToString() ?? "1234"; // Default to 1234 if not found
+            }
+        }
         private void loginButton_Click(object sender, EventArgs e)
         {
-            string email = emailLogin.Text;
-            string password = passwordLogin.Text;
+            string email = emailLogin.Text.Trim();
+            string password = passwordLogin.Text.Trim();
 
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
@@ -50,19 +66,20 @@ namespace GTMS2
                 return;
             }
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
-            {
-                try
-                {
-                    conn.Open();
-                    conn.Open();
-                    // JOIN users and students to get the role and student number
-                    string query = @"SELECT u.role, s.first_name, s.last_name, s.student_number 
+            string query = @"SELECT u.role, e.first_name, e.last_name, e.isAdmin, e.isInstructor, s.student_number 
                              FROM users u 
-                             LEFT JOIN students s ON u.user_id = s.user_id 
+                             LEFT JOIN employees e ON u.user_id = e.user_id 
+                             LEFT JOIN students s ON u.user_id = s.user_id
                              WHERE u.email = @email AND u.password = @pass";
 
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
+            try
+            {
+                // FIX: Use 'conn' (the object), not 'connectionString' (the text)
+                if (conn.State == ConnectionState.Closed)
+                    conn.Open();
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
                     cmd.Parameters.AddWithValue("@email", email);
                     cmd.Parameters.AddWithValue("@pass", password);
 
@@ -70,55 +87,68 @@ namespace GTMS2
                     {
                         if (reader.Read())
                         {
-                            string fullName = $"{reader["first_name"]} {reader["last_name"]}";
-                            string sNum = reader["student_number"].ToString();
+                            string role = reader["role"].ToString();
 
-                            studentForm sForm = new studentForm(fullName, sNum);
-                            sForm.Show();
-                            this.Hide();
+                            // Get names from either student or employee table
+                            string firstName = reader["first_name"]?.ToString() ?? "";
+                            string lastName = reader["last_name"]?.ToString() ?? "";
+                            string empName = reader["name"]?.ToString() ?? "";
+                            string fullName = $"{firstName} {lastName}".Trim();
 
-                        this.Hide(); // Hide the current Login/Signup form
-
-                            switch (userRole)
+                            if (role == "STUDENT")
                             {
-                                case "STUDENT":
-                                    // Construct the full name from database columns
-                                    string fullName = $"{reader["first_name"]} {reader["last_name"]}";
-
-                                    // Pass the name to the new form
-                                    studentForm sForm = new studentForm(fullName);
-                                    sForm.Show();
-                                    break;
-
-                                case "ADMIN":
-                                    adminForm aForm = new adminForm();
-                                    aForm.Show();
-                                    break;
-
-                                case "INSTRUCTOR":
-                                    instructorForm iForm = new instructorForm();
-                                    iForm.Show();
-                                    break;
-
-                            default:
-                                MessageBox.Show("Role not recognized. Contact support.");
-                                this.Show(); // Show login back if role is undefined
-                                break;
+                                string sNum = reader["student_number"].ToString();
+                                studentForm sForm = new studentForm(fullName, sNum);
+                                sForm.Show();
+                                this.Hide();
                             }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Invalid email or password.");
+                            else if (role == "EMPLOYEE")
+                            {
+                                bool isAdmin = reader["isAdmin"] != DBNull.Value && Convert.ToBoolean(reader["isAdmin"]);
+                                bool isInstructor = reader["isInstructor"] != DBNull.Value && Convert.ToBoolean(reader["isInstructor"]);
+
+                                if (isAdmin)
+                                {
+                                    new adminForm(fullName).Show();
+                                    this.Hide();
+                                }
+                                else if (isInstructor)
+                                {
+                                    // Simple Popup to ask for PIN
+                                    string input = Interaction.InputBox("Enter Instructor Passkey:", "Security Check", "");
+
+                                    // Fetch the global passkey (assuming it's stored in a table called 'system_settings')
+                                    if (input == GetGlobalInstructorPasskey())
+                                    {
+                                        instructorForm iForm = new instructorForm(empName);
+                                        iForm.Show();
+                                        this.Hide();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Invalid Passkey!");
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid email or password.");
+                            }
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Database Error: " + ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Error: " + ex.Message);
+            }
+            finally
+            {
+                // FIX: Use 'conn' to close
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
             }
         }
-
         private void signupButton_Click(object sender, EventArgs e)
         {
             // Basic validation
@@ -128,10 +158,11 @@ namespace GTMS2
                 return;
             }
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            // Using the string variable here to create a temporary connection
+            using (MySqlConnection signupConn = new MySqlConnection(connStringText))
             {
-                conn.Open();
-                MySqlTransaction transaction = conn.BeginTransaction();
+                signupConn.Open();
+                MySqlTransaction transaction = signupConn.BeginTransaction();
 
                 try
                 {

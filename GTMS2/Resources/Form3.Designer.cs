@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.titlePanel = new System.Windows.Forms.Panel();
             this.switchUser = new System.Windows.Forms.Button();
             this.logout = new System.Windows.Forms.Button();
@@ -44,14 +44,6 @@
             this.placeholderName = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.userControl = new System.Windows.Forms.Panel();
-            this.courseControl = new System.Windows.Forms.Panel();
-            this.searchBoxCourses = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.returnButton2 = new System.Windows.Forms.Button();
-            this.cancelChangesCourses = new System.Windows.Forms.Button();
-            this.saveChangesCourses = new System.Windows.Forms.Button();
-            this.courses = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
             this.searchBoxUsers = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.userRoles = new System.Windows.Forms.ComboBox();
@@ -73,6 +65,14 @@
             this.studentEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roleStudents = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
+            this.courseControl = new System.Windows.Forms.Panel();
+            this.searchBoxCourses = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.returnButton2 = new System.Windows.Forms.Button();
+            this.cancelChangesCourses = new System.Windows.Forms.Button();
+            this.saveChangesCourses = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.courses = new System.Windows.Forms.DataGridView();
             this.courseCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.units = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,10 +81,10 @@
             this.titlePanel.SuspendLayout();
             this.welcomePanel.SuspendLayout();
             this.userControl.SuspendLayout();
-            this.courseControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.courses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentInfo)).BeginInit();
+            this.courseControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.courses)).BeginInit();
             this.SuspendLayout();
             // 
             // titlePanel
@@ -112,6 +112,7 @@
             this.switchUser.Text = "Switch";
             this.switchUser.UseVisualStyleBackColor = false;
             this.switchUser.Visible = false;
+            this.switchUser.Click += new System.EventHandler(this.switchUser_Click);
             // 
             // logout
             // 
@@ -174,6 +175,7 @@
             this.changeAdminPasskey.TabIndex = 11;
             this.changeAdminPasskey.Text = "Change Admin Passkey";
             this.changeAdminPasskey.UseVisualStyleBackColor = false;
+            this.changeAdminPasskey.Click += new System.EventHandler(this.changeAdminPasskey_Click);
             // 
             // changeInstructorPasskey
             // 
@@ -184,6 +186,7 @@
             this.changeInstructorPasskey.TabIndex = 10;
             this.changeInstructorPasskey.Text = "Change Instructor Passkey";
             this.changeInstructorPasskey.UseVisualStyleBackColor = false;
+            this.changeInstructorPasskey.Click += new System.EventHandler(this.changeInstructorPasskey_Click);
             // 
             // manageCourses
             // 
@@ -194,6 +197,7 @@
             this.manageCourses.TabIndex = 9;
             this.manageCourses.Text = "Manage Courses";
             this.manageCourses.UseVisualStyleBackColor = false;
+            this.manageCourses.Click += new System.EventHandler(this.manageCourses_Click);
             // 
             // manageUsers
             // 
@@ -204,6 +208,7 @@
             this.manageUsers.TabIndex = 8;
             this.manageUsers.Text = "Manage Users";
             this.manageUsers.UseVisualStyleBackColor = false;
+            this.manageUsers.Click += new System.EventHandler(this.manageUsers_Click);
             // 
             // label6
             // 
@@ -261,119 +266,13 @@
             this.userControl.Size = new System.Drawing.Size(1805, 795);
             this.userControl.TabIndex = 10;
             // 
-            // courseControl
-            // 
-            this.courseControl.BackColor = System.Drawing.Color.Indigo;
-            this.courseControl.Controls.Add(this.searchBoxCourses);
-            this.courseControl.Controls.Add(this.label7);
-            this.courseControl.Controls.Add(this.returnButton2);
-            this.courseControl.Controls.Add(this.cancelChangesCourses);
-            this.courseControl.Controls.Add(this.saveChangesCourses);
-            this.courseControl.Controls.Add(this.label9);
-            this.courseControl.Controls.Add(this.courses);
-            this.courseControl.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseControl.ForeColor = System.Drawing.Color.White;
-            this.courseControl.Location = new System.Drawing.Point(41, 184);
-            this.courseControl.Name = "courseControl";
-            this.courseControl.Size = new System.Drawing.Size(1805, 795);
-            this.courseControl.TabIndex = 20;
-            // 
-            // searchBoxCourses
-            // 
-            this.searchBoxCourses.Location = new System.Drawing.Point(347, 208);
-            this.searchBoxCourses.Name = "searchBoxCourses";
-            this.searchBoxCourses.Size = new System.Drawing.Size(1257, 48);
-            this.searchBoxCourses.TabIndex = 19;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(193, 219);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(123, 42);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "Search:";
-            // 
-            // returnButton2
-            // 
-            this.returnButton2.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 26F);
-            this.returnButton2.ForeColor = System.Drawing.Color.Black;
-            this.returnButton2.Location = new System.Drawing.Point(1695, 19);
-            this.returnButton2.Name = "returnButton2";
-            this.returnButton2.Size = new System.Drawing.Size(93, 67);
-            this.returnButton2.TabIndex = 13;
-            this.returnButton2.Text = "<";
-            this.returnButton2.UseVisualStyleBackColor = true;
-            // 
-            // cancelChangesCourses
-            // 
-            this.cancelChangesCourses.BackColor = System.Drawing.Color.Crimson;
-            this.cancelChangesCourses.Enabled = false;
-            this.cancelChangesCourses.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F);
-            this.cancelChangesCourses.ForeColor = System.Drawing.Color.White;
-            this.cancelChangesCourses.Location = new System.Drawing.Point(1420, 535);
-            this.cancelChangesCourses.Name = "cancelChangesCourses";
-            this.cancelChangesCourses.Size = new System.Drawing.Size(270, 59);
-            this.cancelChangesCourses.TabIndex = 12;
-            this.cancelChangesCourses.Text = "Cancel Changes";
-            this.cancelChangesCourses.UseVisualStyleBackColor = false;
-            // 
-            // saveChangesCourses
-            // 
-            this.saveChangesCourses.BackColor = System.Drawing.Color.DarkGreen;
-            this.saveChangesCourses.Enabled = false;
-            this.saveChangesCourses.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveChangesCourses.ForeColor = System.Drawing.Color.White;
-            this.saveChangesCourses.Location = new System.Drawing.Point(1420, 419);
-            this.saveChangesCourses.Name = "saveChangesCourses";
-            this.saveChangesCourses.Size = new System.Drawing.Size(270, 59);
-            this.saveChangesCourses.TabIndex = 11;
-            this.saveChangesCourses.Text = "Save Changes";
-            this.saveChangesCourses.UseVisualStyleBackColor = false;
-            // 
-            // courses
-            // 
-            this.courses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.courses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.courseCode,
-            this.courseDescription,
-            this.units,
-            this.scheduleCode,
-            this.instructor});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.NullValue = null;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.courses.DefaultCellStyle = dataGridViewCellStyle4;
-            this.courses.Location = new System.Drawing.Point(319, 315);
-            this.courses.Name = "courses";
-            this.courses.RowHeadersWidth = 62;
-            this.courses.RowTemplate.Height = 28;
-            this.courses.Size = new System.Drawing.Size(814, 429);
-            this.courses.TabIndex = 17;
-            this.courses.Visible = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(39, 38);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(659, 120);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "Manage Courses";
-            // 
             // searchBoxUsers
             // 
             this.searchBoxUsers.Location = new System.Drawing.Point(761, 208);
             this.searchBoxUsers.Name = "searchBoxUsers";
             this.searchBoxUsers.Size = new System.Drawing.Size(843, 48);
             this.searchBoxUsers.TabIndex = 19;
+            this.searchBoxUsers.TextChanged += new System.EventHandler(this.searchBoxUsers_TextChanged);
             // 
             // label4
             // 
@@ -394,6 +293,7 @@
             this.userRoles.Name = "userRoles";
             this.userRoles.Size = new System.Drawing.Size(248, 50);
             this.userRoles.TabIndex = 16;
+            this.userRoles.SelectedIndexChanged += new System.EventHandler(this.userRoles_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -427,6 +327,7 @@
             this.cancelChangesUser.TabIndex = 12;
             this.cancelChangesUser.Text = "Cancel Changes";
             this.cancelChangesUser.UseVisualStyleBackColor = false;
+            this.cancelChangesUser.Click += new System.EventHandler(this.cancelChangesUser_Click);
             // 
             // saveChangesUser
             // 
@@ -440,6 +341,7 @@
             this.saveChangesUser.TabIndex = 11;
             this.saveChangesUser.Text = "Save Changes";
             this.saveChangesUser.UseVisualStyleBackColor = false;
+            this.saveChangesUser.Click += new System.EventHandler(this.saveChangesUser_Click);
             // 
             // employeeInfo
             // 
@@ -451,15 +353,15 @@
             this.department,
             this.isAdmin,
             this.isInstructor});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.NullValue = null;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.employeeInfo.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.NullValue = null;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.employeeInfo.DefaultCellStyle = dataGridViewCellStyle5;
             this.employeeInfo.Location = new System.Drawing.Point(319, 315);
             this.employeeInfo.Name = "employeeInfo";
             this.employeeInfo.RowHeadersWidth = 62;
@@ -573,6 +475,115 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Manage Users\r\n\r\n\r\n";
             // 
+            // courseControl
+            // 
+            this.courseControl.BackColor = System.Drawing.Color.Indigo;
+            this.courseControl.Controls.Add(this.searchBoxCourses);
+            this.courseControl.Controls.Add(this.label7);
+            this.courseControl.Controls.Add(this.returnButton2);
+            this.courseControl.Controls.Add(this.cancelChangesCourses);
+            this.courseControl.Controls.Add(this.saveChangesCourses);
+            this.courseControl.Controls.Add(this.label9);
+            this.courseControl.Controls.Add(this.courses);
+            this.courseControl.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.courseControl.ForeColor = System.Drawing.Color.White;
+            this.courseControl.Location = new System.Drawing.Point(41, 184);
+            this.courseControl.Name = "courseControl";
+            this.courseControl.Size = new System.Drawing.Size(1805, 795);
+            this.courseControl.TabIndex = 20;
+            // 
+            // searchBoxCourses
+            // 
+            this.searchBoxCourses.Location = new System.Drawing.Point(347, 208);
+            this.searchBoxCourses.Name = "searchBoxCourses";
+            this.searchBoxCourses.Size = new System.Drawing.Size(1257, 48);
+            this.searchBoxCourses.TabIndex = 19;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(193, 219);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(123, 42);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Search:";
+            // 
+            // returnButton2
+            // 
+            this.returnButton2.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 26F);
+            this.returnButton2.ForeColor = System.Drawing.Color.Black;
+            this.returnButton2.Location = new System.Drawing.Point(1695, 19);
+            this.returnButton2.Name = "returnButton2";
+            this.returnButton2.Size = new System.Drawing.Size(93, 67);
+            this.returnButton2.TabIndex = 13;
+            this.returnButton2.Text = "<";
+            this.returnButton2.UseVisualStyleBackColor = true;
+            // 
+            // cancelChangesCourses
+            // 
+            this.cancelChangesCourses.BackColor = System.Drawing.Color.Crimson;
+            this.cancelChangesCourses.Enabled = false;
+            this.cancelChangesCourses.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F);
+            this.cancelChangesCourses.ForeColor = System.Drawing.Color.White;
+            this.cancelChangesCourses.Location = new System.Drawing.Point(1420, 535);
+            this.cancelChangesCourses.Name = "cancelChangesCourses";
+            this.cancelChangesCourses.Size = new System.Drawing.Size(270, 59);
+            this.cancelChangesCourses.TabIndex = 12;
+            this.cancelChangesCourses.Text = "Cancel Changes";
+            this.cancelChangesCourses.UseVisualStyleBackColor = false;
+            this.cancelChangesCourses.Click += new System.EventHandler(this.cancelChangesCourses_Click);
+            // 
+            // saveChangesCourses
+            // 
+            this.saveChangesCourses.BackColor = System.Drawing.Color.DarkGreen;
+            this.saveChangesCourses.Enabled = false;
+            this.saveChangesCourses.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveChangesCourses.ForeColor = System.Drawing.Color.White;
+            this.saveChangesCourses.Location = new System.Drawing.Point(1420, 419);
+            this.saveChangesCourses.Name = "saveChangesCourses";
+            this.saveChangesCourses.Size = new System.Drawing.Size(270, 59);
+            this.saveChangesCourses.TabIndex = 11;
+            this.saveChangesCourses.Text = "Save Changes";
+            this.saveChangesCourses.UseVisualStyleBackColor = false;
+            this.saveChangesCourses.Click += new System.EventHandler(this.saveChangesCourses_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(39, 38);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(659, 120);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "Manage Courses";
+            // 
+            // courses
+            // 
+            this.courses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.courses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.courseCode,
+            this.courseDescription,
+            this.units,
+            this.scheduleCode,
+            this.instructor});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.NullValue = null;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.courses.DefaultCellStyle = dataGridViewCellStyle6;
+            this.courses.Location = new System.Drawing.Point(319, 315);
+            this.courses.Name = "courses";
+            this.courses.RowHeadersWidth = 62;
+            this.courses.RowTemplate.Height = 28;
+            this.courses.Size = new System.Drawing.Size(814, 429);
+            this.courses.TabIndex = 17;
+            this.courses.Visible = false;
+            // 
             // courseCode
             // 
             this.courseCode.HeaderText = "Course Code";
@@ -625,11 +636,11 @@
             this.welcomePanel.PerformLayout();
             this.userControl.ResumeLayout(false);
             this.userControl.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentInfo)).EndInit();
             this.courseControl.ResumeLayout(false);
             this.courseControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.courses)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeInfo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentInfo)).EndInit();
             this.ResumeLayout(false);
 
         }

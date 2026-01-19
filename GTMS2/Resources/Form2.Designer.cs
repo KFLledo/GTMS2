@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.titlePanel = new System.Windows.Forms.Panel();
+            this.switchUser = new System.Windows.Forms.Button();
             this.logout = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -56,23 +57,23 @@
             this.label5 = new System.Windows.Forms.Label();
             this.nonVerifiedGradesPanel = new System.Windows.Forms.Panel();
             this.returnButton = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.nonVerifiedPerformance = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.nonverifiedGrades = new System.Windows.Forms.DataGridView();
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewButtonColumn2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
+            this.uploadaswell = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.verifiedGradesPanel = new System.Windows.Forms.Panel();
             this.returnButton2 = new System.Windows.Forms.Button();
-            this.cancelButton = new System.Windows.Forms.Button();
-            this.saveChangesButton = new System.Windows.Forms.Button();
+            this.cancelChangesVerified = new System.Windows.Forms.Button();
+            this.saveChangesVerified = new System.Windows.Forms.Button();
             this.verifyButton = new System.Windows.Forms.Button();
-            this.performance = new System.Windows.Forms.DataGridView();
+            this.verifiedPerformance = new System.Windows.Forms.DataGridView();
             this.breakdownVerified = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scoringVerified = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.verifiedGrades = new System.Windows.Forms.DataGridView();
@@ -82,17 +83,22 @@
             this.gradeVerified = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitsVerified = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
-            this.switchUser = new System.Windows.Forms.Button();
+            this.cancelChangesNonverified = new System.Windows.Forms.Button();
+            this.saveChangesNonverified = new System.Windows.Forms.Button();
+            this.searchBoxNonverified = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.searchboxVerified = new System.Windows.Forms.TextBox();
             this.titlePanel.SuspendLayout();
             this.yearLevelPanel.SuspendLayout();
             this.semesterPanel.SuspendLayout();
             this.periodPanel.SuspendLayout();
             this.welcomePanel.SuspendLayout();
             this.nonVerifiedGradesPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nonVerifiedPerformance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nonverifiedGrades)).BeginInit();
             this.verifiedGradesPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.performance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verifiedPerformance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.verifiedGrades)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,6 +114,20 @@
             this.titlePanel.Name = "titlePanel";
             this.titlePanel.Size = new System.Drawing.Size(1903, 136);
             this.titlePanel.TabIndex = 1;
+            // 
+            // switchUser
+            // 
+            this.switchUser.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.switchUser.Font = new System.Drawing.Font("Franklin Gothic Demi", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.switchUser.ForeColor = System.Drawing.Color.White;
+            this.switchUser.Location = new System.Drawing.Point(1514, 28);
+            this.switchUser.Name = "switchUser";
+            this.switchUser.Size = new System.Drawing.Size(183, 76);
+            this.switchUser.TabIndex = 4;
+            this.switchUser.Text = "Switch";
+            this.switchUser.UseVisualStyleBackColor = false;
+            this.switchUser.Visible = false;
+            this.switchUser.Click += new System.EventHandler(this.switchUser_Click);
             // 
             // logout
             // 
@@ -188,6 +208,7 @@
             this.year1Student.TabIndex = 0;
             this.year1Student.Text = "1st Year";
             this.year1Student.UseVisualStyleBackColor = false;
+            this.year1Student.Click += new System.EventHandler(this.year1Student_Click);
             // 
             // year2Student
             // 
@@ -202,6 +223,7 @@
             this.year2Student.TabIndex = 1;
             this.year2Student.Text = "2nd Year";
             this.year2Student.UseVisualStyleBackColor = false;
+            this.year2Student.Click += new System.EventHandler(this.year2Student_Click);
             // 
             // year3Student
             // 
@@ -216,6 +238,7 @@
             this.year3Student.TabIndex = 2;
             this.year3Student.Text = "3rd Year";
             this.year3Student.UseVisualStyleBackColor = false;
+            this.year3Student.Click += new System.EventHandler(this.year3Student_Click);
             // 
             // year4Student
             // 
@@ -230,6 +253,7 @@
             this.year4Student.TabIndex = 3;
             this.year4Student.Text = "4th Year";
             this.year4Student.UseVisualStyleBackColor = false;
+            this.year4Student.Click += new System.EventHandler(this.year4Student_Click);
             // 
             // semesterPanel
             // 
@@ -275,6 +299,7 @@
             this.semester1Student.TabIndex = 0;
             this.semester1Student.Text = "1st Semester";
             this.semester1Student.UseVisualStyleBackColor = false;
+            this.semester1Student.Click += new System.EventHandler(this.semester1Student_Click);
             // 
             // semester2Student
             // 
@@ -289,6 +314,7 @@
             this.semester2Student.TabIndex = 1;
             this.semester2Student.Text = "2nd Semester";
             this.semester2Student.UseVisualStyleBackColor = false;
+            this.semester2Student.Click += new System.EventHandler(this.semester2Student_Click);
             // 
             // returntoYear
             // 
@@ -300,6 +326,7 @@
             this.returntoYear.TabIndex = 7;
             this.returntoYear.Text = "<- Back";
             this.returntoYear.UseVisualStyleBackColor = true;
+            this.returntoYear.Click += new System.EventHandler(this.returntoYear_Click);
             // 
             // periodPanel
             // 
@@ -345,6 +372,7 @@
             this.midtermsStudent.TabIndex = 0;
             this.midtermsStudent.Text = "Midterms";
             this.midtermsStudent.UseVisualStyleBackColor = false;
+            this.midtermsStudent.Click += new System.EventHandler(this.midtermsStudent_Click);
             // 
             // finalsStudent
             // 
@@ -359,6 +387,7 @@
             this.finalsStudent.TabIndex = 1;
             this.finalsStudent.Text = "Finals";
             this.finalsStudent.UseVisualStyleBackColor = false;
+            this.finalsStudent.Click += new System.EventHandler(this.finalsStudent_Click);
             // 
             // returntoSemester
             // 
@@ -370,6 +399,7 @@
             this.returntoSemester.TabIndex = 5;
             this.returntoSemester.Text = "<- Back";
             this.returntoSemester.UseVisualStyleBackColor = true;
+            this.returntoSemester.Click += new System.EventHandler(this.returntoSemester_Click);
             // 
             // welcomePanel
             // 
@@ -395,6 +425,7 @@
             this.welcomeUpload.TabIndex = 6;
             this.welcomeUpload.Text = "Upload";
             this.welcomeUpload.UseVisualStyleBackColor = true;
+            this.welcomeUpload.Click += new System.EventHandler(this.welcomeUpload_Click);
             // 
             // viewGrades
             // 
@@ -406,6 +437,7 @@
             this.viewGrades.TabIndex = 5;
             this.viewGrades.Text = "View";
             this.viewGrades.UseVisualStyleBackColor = true;
+            this.viewGrades.Click += new System.EventHandler(this.viewGrades_Click);
             // 
             // label6
             // 
@@ -443,10 +475,14 @@
             // nonVerifiedGradesPanel
             // 
             this.nonVerifiedGradesPanel.BackColor = System.Drawing.Color.Indigo;
+            this.nonVerifiedGradesPanel.Controls.Add(this.label9);
+            this.nonVerifiedGradesPanel.Controls.Add(this.searchBoxNonverified);
+            this.nonVerifiedGradesPanel.Controls.Add(this.cancelChangesNonverified);
+            this.nonVerifiedGradesPanel.Controls.Add(this.saveChangesNonverified);
             this.nonVerifiedGradesPanel.Controls.Add(this.returnButton);
-            this.nonVerifiedGradesPanel.Controls.Add(this.dataGridView1);
-            this.nonVerifiedGradesPanel.Controls.Add(this.dataGridView2);
-            this.nonVerifiedGradesPanel.Controls.Add(this.button1);
+            this.nonVerifiedGradesPanel.Controls.Add(this.nonVerifiedPerformance);
+            this.nonVerifiedGradesPanel.Controls.Add(this.nonverifiedGrades);
+            this.nonVerifiedGradesPanel.Controls.Add(this.uploadaswell);
             this.nonVerifiedGradesPanel.Controls.Add(this.label7);
             this.nonVerifiedGradesPanel.ForeColor = System.Drawing.Color.White;
             this.nonVerifiedGradesPanel.Location = new System.Drawing.Point(449, 200);
@@ -466,18 +502,18 @@
             this.returnButton.Text = "<";
             this.returnButton.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // nonVerifiedPerformance
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nonVerifiedPerformance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.nonVerifiedPerformance.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
-            this.dataGridView1.Location = new System.Drawing.Point(833, 158);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(363, 454);
-            this.dataGridView1.TabIndex = 9;
+            this.nonVerifiedPerformance.Location = new System.Drawing.Point(702, 229);
+            this.nonVerifiedPerformance.Name = "nonVerifiedPerformance";
+            this.nonVerifiedPerformance.RowHeadersWidth = 62;
+            this.nonVerifiedPerformance.RowTemplate.Height = 28;
+            this.nonVerifiedPerformance.Size = new System.Drawing.Size(363, 426);
+            this.nonVerifiedPerformance.TabIndex = 9;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -494,22 +530,22 @@
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.Width = 150;
             // 
-            // dataGridView2
+            // nonverifiedGrades
             // 
-            this.dataGridView2.AllowUserToOrderColumns = true;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nonverifiedGrades.AllowUserToOrderColumns = true;
+            this.nonverifiedGrades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.nonverifiedGrades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewButtonColumn1,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewButtonColumn2,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
-            this.dataGridView2.Location = new System.Drawing.Point(197, 156);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 62;
-            this.dataGridView2.RowTemplate.Height = 28;
-            this.dataGridView2.Size = new System.Drawing.Size(611, 456);
-            this.dataGridView2.TabIndex = 8;
+            this.nonverifiedGrades.Location = new System.Drawing.Point(67, 229);
+            this.nonverifiedGrades.Name = "nonverifiedGrades";
+            this.nonverifiedGrades.RowHeadersWidth = 62;
+            this.nonverifiedGrades.RowTemplate.Height = 28;
+            this.nonverifiedGrades.Size = new System.Drawing.Size(611, 426);
+            this.nonverifiedGrades.TabIndex = 8;
             // 
             // dataGridViewButtonColumn1
             // 
@@ -548,16 +584,17 @@
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.Width = 150;
             // 
-            // button1
+            // uploadaswell
             // 
-            this.button1.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 26F);
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(514, 669);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(302, 73);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Upload";
-            this.button1.UseVisualStyleBackColor = true;
+            this.uploadaswell.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 26F);
+            this.uploadaswell.ForeColor = System.Drawing.Color.Black;
+            this.uploadaswell.Location = new System.Drawing.Point(514, 669);
+            this.uploadaswell.Name = "uploadaswell";
+            this.uploadaswell.Size = new System.Drawing.Size(302, 73);
+            this.uploadaswell.TabIndex = 7;
+            this.uploadaswell.Text = "Upload";
+            this.uploadaswell.UseVisualStyleBackColor = true;
+            this.uploadaswell.Click += new System.EventHandler(this.uploadaswell_Click);
             // 
             // label7
             // 
@@ -574,11 +611,13 @@
             // verifiedGradesPanel
             // 
             this.verifiedGradesPanel.BackColor = System.Drawing.Color.Indigo;
+            this.verifiedGradesPanel.Controls.Add(this.label10);
+            this.verifiedGradesPanel.Controls.Add(this.searchboxVerified);
             this.verifiedGradesPanel.Controls.Add(this.returnButton2);
-            this.verifiedGradesPanel.Controls.Add(this.cancelButton);
-            this.verifiedGradesPanel.Controls.Add(this.saveChangesButton);
+            this.verifiedGradesPanel.Controls.Add(this.cancelChangesVerified);
+            this.verifiedGradesPanel.Controls.Add(this.saveChangesVerified);
             this.verifiedGradesPanel.Controls.Add(this.verifyButton);
-            this.verifiedGradesPanel.Controls.Add(this.performance);
+            this.verifiedGradesPanel.Controls.Add(this.verifiedPerformance);
             this.verifiedGradesPanel.Controls.Add(this.verifiedGrades);
             this.verifiedGradesPanel.Controls.Add(this.label8);
             this.verifiedGradesPanel.ForeColor = System.Drawing.Color.White;
@@ -599,31 +638,33 @@
             this.returnButton2.Text = "<";
             this.returnButton2.UseVisualStyleBackColor = true;
             // 
-            // cancelButton
+            // cancelChangesVerified
             // 
-            this.cancelButton.BackColor = System.Drawing.Color.Crimson;
-            this.cancelButton.Enabled = false;
-            this.cancelButton.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F);
-            this.cancelButton.ForeColor = System.Drawing.Color.White;
-            this.cancelButton.Location = new System.Drawing.Point(1097, 416);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(270, 59);
-            this.cancelButton.TabIndex = 10;
-            this.cancelButton.Text = "Cancel Changes";
-            this.cancelButton.UseVisualStyleBackColor = false;
+            this.cancelChangesVerified.BackColor = System.Drawing.Color.Crimson;
+            this.cancelChangesVerified.Enabled = false;
+            this.cancelChangesVerified.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F);
+            this.cancelChangesVerified.ForeColor = System.Drawing.Color.White;
+            this.cancelChangesVerified.Location = new System.Drawing.Point(1097, 416);
+            this.cancelChangesVerified.Name = "cancelChangesVerified";
+            this.cancelChangesVerified.Size = new System.Drawing.Size(270, 59);
+            this.cancelChangesVerified.TabIndex = 10;
+            this.cancelChangesVerified.Text = "Cancel Changes";
+            this.cancelChangesVerified.UseVisualStyleBackColor = false;
+            this.cancelChangesVerified.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // saveChangesButton
+            // saveChangesVerified
             // 
-            this.saveChangesButton.BackColor = System.Drawing.Color.DarkGreen;
-            this.saveChangesButton.Enabled = false;
-            this.saveChangesButton.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveChangesButton.ForeColor = System.Drawing.Color.White;
-            this.saveChangesButton.Location = new System.Drawing.Point(1097, 300);
-            this.saveChangesButton.Name = "saveChangesButton";
-            this.saveChangesButton.Size = new System.Drawing.Size(270, 59);
-            this.saveChangesButton.TabIndex = 9;
-            this.saveChangesButton.Text = "Save Changes";
-            this.saveChangesButton.UseVisualStyleBackColor = false;
+            this.saveChangesVerified.BackColor = System.Drawing.Color.DarkGreen;
+            this.saveChangesVerified.Enabled = false;
+            this.saveChangesVerified.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveChangesVerified.ForeColor = System.Drawing.Color.White;
+            this.saveChangesVerified.Location = new System.Drawing.Point(1097, 300);
+            this.saveChangesVerified.Name = "saveChangesVerified";
+            this.saveChangesVerified.Size = new System.Drawing.Size(270, 59);
+            this.saveChangesVerified.TabIndex = 9;
+            this.saveChangesVerified.Text = "Save Changes";
+            this.saveChangesVerified.UseVisualStyleBackColor = false;
+            this.saveChangesVerified.Click += new System.EventHandler(this.saveChangesButton_Click);
             // 
             // verifyButton
             // 
@@ -635,19 +676,20 @@
             this.verifyButton.TabIndex = 8;
             this.verifyButton.Text = "Verify";
             this.verifyButton.UseVisualStyleBackColor = true;
+            this.verifyButton.Click += new System.EventHandler(this.verifyButton_Click);
             // 
-            // performance
+            // verifiedPerformance
             // 
-            this.performance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.performance.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.verifiedPerformance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.verifiedPerformance.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.breakdownVerified,
             this.scoringVerified});
-            this.performance.Location = new System.Drawing.Point(708, 178);
-            this.performance.Name = "performance";
-            this.performance.RowHeadersWidth = 62;
-            this.performance.RowTemplate.Height = 28;
-            this.performance.Size = new System.Drawing.Size(363, 454);
-            this.performance.TabIndex = 5;
+            this.verifiedPerformance.Location = new System.Drawing.Point(708, 229);
+            this.verifiedPerformance.Name = "verifiedPerformance";
+            this.verifiedPerformance.RowHeadersWidth = 62;
+            this.verifiedPerformance.RowTemplate.Height = 28;
+            this.verifiedPerformance.Size = new System.Drawing.Size(363, 403);
+            this.verifiedPerformance.TabIndex = 5;
             // 
             // breakdownVerified
             // 
@@ -674,11 +716,11 @@
             this.studentVerified,
             this.gradeVerified,
             this.unitsVerified});
-            this.verifiedGrades.Location = new System.Drawing.Point(72, 176);
+            this.verifiedGrades.Location = new System.Drawing.Point(72, 229);
             this.verifiedGrades.Name = "verifiedGrades";
             this.verifiedGrades.RowHeadersWidth = 62;
             this.verifiedGrades.RowTemplate.Height = 28;
-            this.verifiedGrades.Size = new System.Drawing.Size(611, 456);
+            this.verifiedGrades.Size = new System.Drawing.Size(611, 403);
             this.verifiedGrades.TabIndex = 4;
             // 
             // subjectcodeVerified
@@ -730,18 +772,70 @@
             this.label8.TabIndex = 3;
             this.label8.Text = "Verify Grades";
             // 
-            // switchUser
+            // cancelChangesNonverified
             // 
-            this.switchUser.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.switchUser.Font = new System.Drawing.Font("Franklin Gothic Demi", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.switchUser.ForeColor = System.Drawing.Color.White;
-            this.switchUser.Location = new System.Drawing.Point(1514, 28);
-            this.switchUser.Name = "switchUser";
-            this.switchUser.Size = new System.Drawing.Size(183, 76);
-            this.switchUser.TabIndex = 4;
-            this.switchUser.Text = "Switch";
-            this.switchUser.UseVisualStyleBackColor = false;
-            this.switchUser.Visible = false;
+            this.cancelChangesNonverified.BackColor = System.Drawing.Color.Crimson;
+            this.cancelChangesNonverified.Enabled = false;
+            this.cancelChangesNonverified.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F);
+            this.cancelChangesNonverified.ForeColor = System.Drawing.Color.White;
+            this.cancelChangesNonverified.Location = new System.Drawing.Point(1103, 416);
+            this.cancelChangesNonverified.Name = "cancelChangesNonverified";
+            this.cancelChangesNonverified.Size = new System.Drawing.Size(270, 59);
+            this.cancelChangesNonverified.TabIndex = 14;
+            this.cancelChangesNonverified.Text = "Cancel Changes";
+            this.cancelChangesNonverified.UseVisualStyleBackColor = false;
+            this.cancelChangesNonverified.Click += new System.EventHandler(this.cancelChangesNonverified_Click);
+            // 
+            // saveChangesNonverified
+            // 
+            this.saveChangesNonverified.BackColor = System.Drawing.Color.DarkGreen;
+            this.saveChangesNonverified.Enabled = false;
+            this.saveChangesNonverified.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveChangesNonverified.ForeColor = System.Drawing.Color.White;
+            this.saveChangesNonverified.Location = new System.Drawing.Point(1103, 300);
+            this.saveChangesNonverified.Name = "saveChangesNonverified";
+            this.saveChangesNonverified.Size = new System.Drawing.Size(270, 59);
+            this.saveChangesNonverified.TabIndex = 13;
+            this.saveChangesNonverified.Text = "Save Changes";
+            this.saveChangesNonverified.UseVisualStyleBackColor = false;
+            this.saveChangesNonverified.Click += new System.EventHandler(this.saveChangesNonverified_Click);
+            // 
+            // searchBoxNonverified
+            // 
+            this.searchBoxNonverified.Location = new System.Drawing.Point(301, 184);
+            this.searchBoxNonverified.Name = "searchBoxNonverified";
+            this.searchBoxNonverified.Size = new System.Drawing.Size(764, 26);
+            this.searchBoxNonverified.TabIndex = 15;
+            this.searchBoxNonverified.TextChanged += new System.EventHandler(this.searchBoxNonverified_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F);
+            this.label9.Location = new System.Drawing.Point(60, 169);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(235, 42);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Search student:";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F);
+            this.label10.Location = new System.Drawing.Point(66, 168);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(235, 42);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "Search student:";
+            // 
+            // searchboxVerified
+            // 
+            this.searchboxVerified.Location = new System.Drawing.Point(307, 183);
+            this.searchboxVerified.Name = "searchboxVerified";
+            this.searchboxVerified.Size = new System.Drawing.Size(764, 26);
+            this.searchboxVerified.TabIndex = 17;
+            this.searchboxVerified.TextChanged += new System.EventHandler(this.searchboxVerified_TextChanged);
             // 
             // instructorForm
             // 
@@ -769,11 +863,11 @@
             this.welcomePanel.PerformLayout();
             this.nonVerifiedGradesPanel.ResumeLayout(false);
             this.nonVerifiedGradesPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nonVerifiedPerformance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nonverifiedGrades)).EndInit();
             this.verifiedGradesPanel.ResumeLayout(false);
             this.verifiedGradesPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.performance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verifiedPerformance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.verifiedGrades)).EndInit();
             this.ResumeLayout(false);
 
@@ -810,10 +904,10 @@
         private System.Windows.Forms.Panel nonVerifiedGradesPanel;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel verifiedGradesPanel;
-        private System.Windows.Forms.DataGridView performance;
+        private System.Windows.Forms.DataGridView verifiedPerformance;
         private System.Windows.Forms.DataGridView verifiedGrades;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button uploadaswell;
         private System.Windows.Forms.Button verifyButton;
         private System.Windows.Forms.DataGridViewButtonColumn subjectcodeVerified;
         private System.Windows.Forms.DataGridViewTextBoxColumn subjectdescriptionVerified;
@@ -822,12 +916,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn unitsVerified;
         private System.Windows.Forms.DataGridViewTextBoxColumn breakdownVerified;
         private System.Windows.Forms.DataGridViewTextBoxColumn scoringVerified;
-        private System.Windows.Forms.Button saveChangesButton;
-        private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button saveChangesVerified;
+        private System.Windows.Forms.Button cancelChangesVerified;
+        private System.Windows.Forms.DataGridView nonVerifiedPerformance;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView nonverifiedGrades;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn2;
@@ -836,5 +930,11 @@
         private System.Windows.Forms.Button returnButton;
         private System.Windows.Forms.Button returnButton2;
         private System.Windows.Forms.Button switchUser;
+        private System.Windows.Forms.Button cancelChangesNonverified;
+        private System.Windows.Forms.Button saveChangesNonverified;
+        private System.Windows.Forms.TextBox searchBoxNonverified;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox searchboxVerified;
     }
 }
