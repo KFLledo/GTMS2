@@ -55,46 +55,61 @@ namespace GTMS2
                 try
                 {
                     conn.Open();
-                    // We fetch the role from the users table
-                    string query = "SELECT role FROM users WHERE email = @email AND password = @pass";
+                    conn.Open();
+                    // JOIN users and students to get the role and student number
+                    string query = @"SELECT u.role, s.first_name, s.last_name, s.student_number 
+                             FROM users u 
+                             LEFT JOIN students s ON u.user_id = s.user_id 
+                             WHERE u.email = @email AND u.password = @pass";
+
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@email", email);
                     cmd.Parameters.AddWithValue("@pass", password);
 
-                    object result = cmd.ExecuteScalar();
-
-                    if (result != null)
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        string userRole = result.ToString().ToUpper(); // Standardize to uppercase
+                        if (reader.Read())
+                        {
+                            string fullName = $"{reader["first_name"]} {reader["last_name"]}";
+                            string sNum = reader["student_number"].ToString();
+
+                            studentForm sForm = new studentForm(fullName, sNum);
+                            sForm.Show();
+                            this.Hide();
 
                         this.Hide(); // Hide the current Login/Signup form
 
-                        switch (userRole)
-                        {
-                            case "STUDENT":
-                                studentForm sForm = new studentForm();
-                                sForm.Show();
-                                break;
+                            switch (userRole)
+                            {
+                                case "STUDENT":
+                                    // Construct the full name from database columns
+                                    string fullName = $"{reader["first_name"]} {reader["last_name"]}";
 
-                            case "ADMIN":
-                                adminForm aForm = new adminForm();
-                                aForm.Show();
-                                break;
+                                    // Pass the name to the new form
+                                    studentForm sForm = new studentForm(fullName);
+                                    sForm.Show();
+                                    break;
 
-                            case "INSTRUCTOR":
-                                instructorForm iForm = new instructorForm();
-                                iForm.Show();
-                                break;
+                                case "ADMIN":
+                                    adminForm aForm = new adminForm();
+                                    aForm.Show();
+                                    break;
+
+                                case "INSTRUCTOR":
+                                    instructorForm iForm = new instructorForm();
+                                    iForm.Show();
+                                    break;
 
                             default:
                                 MessageBox.Show("Role not recognized. Contact support.");
                                 this.Show(); // Show login back if role is undefined
                                 break;
+                            }
                         }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid email or password.");
+                        else
+                        {
+                            MessageBox.Show("Invalid email or password.");
+                        }
                     }
                 }
                 catch (Exception ex)
