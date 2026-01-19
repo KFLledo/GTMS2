@@ -484,8 +484,8 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.signupPanel);
             this.Controls.Add(this.loginPanel);
+            this.Controls.Add(this.signupPanel);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
