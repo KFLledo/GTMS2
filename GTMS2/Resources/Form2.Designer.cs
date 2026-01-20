@@ -679,7 +679,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F);
-            this.label10.Location = new System.Drawing.Point(66, 168);
+            this.label10.Location = new System.Drawing.Point(54, 168);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(235, 42);
             this.label10.TabIndex = 18;
@@ -687,7 +687,7 @@
             // 
             // searchboxVerified
             // 
-            this.searchboxVerified.Location = new System.Drawing.Point(307, 183);
+            this.searchboxVerified.Location = new System.Drawing.Point(295, 183);
             this.searchboxVerified.Name = "searchboxVerified";
             this.searchboxVerified.Size = new System.Drawing.Size(764, 26);
             this.searchboxVerified.TabIndex = 17;
@@ -750,7 +750,7 @@
             this.verifiedPerformance.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.breakdownVerified,
             this.scoringVerified});
-            this.verifiedPerformance.Location = new System.Drawing.Point(708, 229);
+            this.verifiedPerformance.Location = new System.Drawing.Point(696, 229);
             this.verifiedPerformance.Name = "verifiedPerformance";
             this.verifiedPerformance.RowHeadersWidth = 62;
             this.verifiedPerformance.RowTemplate.Height = 28;
@@ -782,7 +782,7 @@
             this.studentVerified,
             this.gradeVerified,
             this.unitsVerified});
-            this.verifiedGrades.Location = new System.Drawing.Point(72, 229);
+            this.verifiedGrades.Location = new System.Drawing.Point(60, 229);
             this.verifiedGrades.Name = "verifiedGrades";
             this.verifiedGrades.RowHeadersWidth = 62;
             this.verifiedGrades.RowTemplate.Height = 28;
@@ -837,6 +837,7 @@
             this.label8.Size = new System.Drawing.Size(398, 91);
             this.label8.TabIndex = 3;
             this.label8.Text = "Verify Grades";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // instructorForm
             // 
@@ -847,9 +848,9 @@
             this.Controls.Add(this.yearLevelPanel);
             this.Controls.Add(this.semesterPanel);
             this.Controls.Add(this.periodPanel);
+            this.Controls.Add(this.verifiedGradesPanel);
             this.Controls.Add(this.welcomePanel);
             this.Controls.Add(this.nonVerifiedGradesPanel);
-            this.Controls.Add(this.verifiedGradesPanel);
             this.Name = "instructorForm";
             this.Text = "Employee Form";
             this.titlePanel.ResumeLayout(false);

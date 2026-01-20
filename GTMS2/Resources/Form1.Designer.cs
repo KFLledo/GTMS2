@@ -762,9 +762,9 @@
             this.Controls.Add(this.periodPanel);
             this.Controls.Add(this.yearLevelPanel);
             this.Controls.Add(this.semesterPanel);
-            this.Controls.Add(this.verifiedGradesPanel);
             this.Controls.Add(this.welcomePanel);
             this.Controls.Add(this.nonVerifiedGradesPanel);
+            this.Controls.Add(this.verifiedGradesPanel);
             this.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 8F);
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "studentForm";
