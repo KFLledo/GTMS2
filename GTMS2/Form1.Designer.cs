@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.signupPanel = new System.Windows.Forms.Panel();
@@ -53,7 +52,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.studentNumber = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.loginPanel = new System.Windows.Forms.Panel();
             this.forgotPassword = new System.Windows.Forms.LinkLabel();
             this.loginButton = new System.Windows.Forms.Button();
@@ -342,12 +340,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Sign Up";
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // loginPanel
             // 
             this.loginPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -514,7 +506,6 @@
         private System.Windows.Forms.TextBox emailSignup;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox studentNumber;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox suffix;
         private System.Windows.Forms.Label label8;

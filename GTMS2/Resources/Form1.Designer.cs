@@ -55,25 +55,6 @@
             this.placeholderName = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.verifiedGradesPanel = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.alsobacktowelcome = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.nonVerifiedGradesPanel = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.backtoWelcome = new System.Windows.Forms.Button();
-            this.nonverifiedPerformance = new System.Windows.Forms.DataGridView();
-            this.nonverifiedGrades = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dataGridViewButtonColumn3 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lecture_attendance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lab_attendance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seatworks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quizzes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lab_activities = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.midterm_exam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.midterm_grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.verifiedPerformance = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,20 +64,35 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.verifiedGrades = new System.Windows.Forms.DataGridView();
+            this.label9 = new System.Windows.Forms.Label();
+            this.alsobacktowelcome = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.nonVerifiedGradesPanel = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.backtoWelcome = new System.Windows.Forms.Button();
+            this.nonverifiedPerformance = new System.Windows.Forms.DataGridView();
+            this.lecture_attendance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lab_attendance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.seatworks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quizzes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lab_activities = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.midterm_exam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.midterm_grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nonverifiedGrades = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dataGridViewButtonColumn3 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titlePanel.SuspendLayout();
             this.yearLevelPanel.SuspendLayout();
             this.semesterPanel.SuspendLayout();
             this.periodPanel.SuspendLayout();
             this.welcomePanel.SuspendLayout();
             this.verifiedGradesPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.verifiedPerformance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verifiedGrades)).BeginInit();
             this.nonVerifiedGradesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nonverifiedPerformance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nonverifiedGrades)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.verifiedPerformance)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.verifiedGrades)).BeginInit();
             this.SuspendLayout();
             // 
             // titlePanel
@@ -122,6 +118,7 @@
             this.logout.TabIndex = 2;
             this.logout.Text = "Log Out";
             this.logout.UseVisualStyleBackColor = false;
+            this.logout.Click += new System.EventHandler(this.logout_Click);
             // 
             // label1
             // 
@@ -468,6 +465,99 @@
             this.verifiedGradesPanel.TabIndex = 8;
             this.verifiedGradesPanel.Visible = false;
             // 
+            // verifiedPerformance
+            // 
+            this.verifiedPerformance.AllowUserToAddRows = false;
+            this.verifiedPerformance.AllowUserToDeleteRows = false;
+            this.verifiedPerformance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.verifiedPerformance.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9});
+            this.verifiedPerformance.Location = new System.Drawing.Point(752, 162);
+            this.verifiedPerformance.Name = "verifiedPerformance";
+            this.verifiedPerformance.ReadOnly = true;
+            this.verifiedPerformance.RowHeadersWidth = 62;
+            this.verifiedPerformance.RowTemplate.Height = 28;
+            this.verifiedPerformance.Size = new System.Drawing.Size(514, 456);
+            this.verifiedPerformance.TabIndex = 10;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Lecture Attendance";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Laboratory Attendance";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Seatworks";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Quizzes";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Laboratory Activities";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "Midterm Exam";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "Midterm Grade";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Width = 150;
+            // 
+            // verifiedGrades
+            // 
+            this.verifiedGrades.AllowUserToAddRows = false;
+            this.verifiedGrades.AllowUserToDeleteRows = false;
+            this.verifiedGrades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.verifiedGrades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewButtonColumn1});
+            this.verifiedGrades.Location = new System.Drawing.Point(135, 162);
+            this.verifiedGrades.Name = "verifiedGrades";
+            this.verifiedGrades.ReadOnly = true;
+            this.verifiedGrades.RowHeadersWidth = 62;
+            this.verifiedGrades.RowTemplate.Height = 28;
+            this.verifiedGrades.Size = new System.Drawing.Size(514, 456);
+            this.verifiedGrades.TabIndex = 9;
+            this.verifiedGrades.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.verifiedGrades_CellClick);
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -560,62 +650,6 @@
             this.nonverifiedPerformance.Size = new System.Drawing.Size(514, 456);
             this.nonverifiedPerformance.TabIndex = 5;
             // 
-            // nonverifiedGrades
-            // 
-            this.nonverifiedGrades.AllowUserToAddRows = false;
-            this.nonverifiedGrades.AllowUserToDeleteRows = false;
-            this.nonverifiedGrades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.nonverifiedGrades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewButtonColumn3,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6});
-            this.nonverifiedGrades.Location = new System.Drawing.Point(114, 176);
-            this.nonverifiedGrades.Name = "nonverifiedGrades";
-            this.nonverifiedGrades.ReadOnly = true;
-            this.nonverifiedGrades.RowHeadersWidth = 62;
-            this.nonverifiedGrades.RowTemplate.Height = 28;
-            this.nonverifiedGrades.Size = new System.Drawing.Size(514, 456);
-            this.nonverifiedGrades.TabIndex = 4;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(418, 52);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(583, 91);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Non-Verified Grades";
-            // 
-            // dataGridViewButtonColumn3
-            // 
-            this.dataGridViewButtonColumn3.DataPropertyName = "course_code";
-            this.dataGridViewButtonColumn3.HeaderText = "Subject";
-            this.dataGridViewButtonColumn3.MinimumWidth = 8;
-            this.dataGridViewButtonColumn3.Name = "dataGridViewButtonColumn3";
-            this.dataGridViewButtonColumn3.ReadOnly = true;
-            this.dataGridViewButtonColumn3.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "midterm_grade";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Grade";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "name";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Instructor";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 150;
-            // 
             // lecture_attendance
             // 
             this.lecture_attendance.HeaderText = "Lecture Attendance";
@@ -672,99 +706,42 @@
             this.midterm_grade.ReadOnly = true;
             this.midterm_grade.Width = 150;
             // 
-            // verifiedPerformance
+            // nonverifiedGrades
             // 
-            this.verifiedPerformance.AllowUserToAddRows = false;
-            this.verifiedPerformance.AllowUserToDeleteRows = false;
-            this.verifiedPerformance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.verifiedPerformance.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9});
-            this.verifiedPerformance.Location = new System.Drawing.Point(752, 162);
-            this.verifiedPerformance.Name = "verifiedPerformance";
-            this.verifiedPerformance.ReadOnly = true;
-            this.verifiedPerformance.RowHeadersWidth = 62;
-            this.verifiedPerformance.RowTemplate.Height = 28;
-            this.verifiedPerformance.Size = new System.Drawing.Size(514, 456);
-            this.verifiedPerformance.TabIndex = 10;
+            this.nonverifiedGrades.AllowUserToAddRows = false;
+            this.nonverifiedGrades.AllowUserToDeleteRows = false;
+            this.nonverifiedGrades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.nonverifiedGrades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewButtonColumn3});
+            this.nonverifiedGrades.Location = new System.Drawing.Point(114, 176);
+            this.nonverifiedGrades.Name = "nonverifiedGrades";
+            this.nonverifiedGrades.ReadOnly = true;
+            this.nonverifiedGrades.RowHeadersWidth = 62;
+            this.nonverifiedGrades.RowTemplate.Height = 28;
+            this.nonverifiedGrades.Size = new System.Drawing.Size(514, 456);
+            this.nonverifiedGrades.TabIndex = 4;
+            this.nonverifiedGrades.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.nonverifiedGrades_CellClick);
             // 
-            // dataGridViewTextBoxColumn1
+            // label7
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Lecture Attendance";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 150;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(418, 52);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(583, 91);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Non-Verified Grades";
             // 
-            // dataGridViewTextBoxColumn2
+            // dataGridViewButtonColumn3
             // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Laboratory Attendance";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Seatworks";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Quizzes";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "Laboratory Activities";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.HeaderText = "Midterm Exam";
-            this.dataGridViewTextBoxColumn8.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "Midterm Grade";
-            this.dataGridViewTextBoxColumn9.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 150;
-            // 
-            // verifiedGrades
-            // 
-            this.verifiedGrades.AllowUserToAddRows = false;
-            this.verifiedGrades.AllowUserToDeleteRows = false;
-            this.verifiedGrades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.verifiedGrades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewButtonColumn1,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11});
-            this.verifiedGrades.Location = new System.Drawing.Point(135, 162);
-            this.verifiedGrades.Name = "verifiedGrades";
-            this.verifiedGrades.ReadOnly = true;
-            this.verifiedGrades.RowHeadersWidth = 62;
-            this.verifiedGrades.RowTemplate.Height = 28;
-            this.verifiedGrades.Size = new System.Drawing.Size(514, 456);
-            this.verifiedGrades.TabIndex = 9;
+            this.dataGridViewButtonColumn3.DataPropertyName = "course_code";
+            this.dataGridViewButtonColumn3.HeaderText = "Subject";
+            this.dataGridViewButtonColumn3.MinimumWidth = 8;
+            this.dataGridViewButtonColumn3.Name = "dataGridViewButtonColumn3";
+            this.dataGridViewButtonColumn3.ReadOnly = true;
+            this.dataGridViewButtonColumn3.Width = 150;
             // 
             // dataGridViewButtonColumn1
             // 
@@ -775,24 +752,6 @@
             this.dataGridViewButtonColumn1.ReadOnly = true;
             this.dataGridViewButtonColumn1.Width = 150;
             // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "midterm_grade";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Grade";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "name";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Instructor";
-            this.dataGridViewTextBoxColumn11.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 150;
-            // 
             // studentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
@@ -800,12 +759,12 @@
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1898, 1029);
             this.Controls.Add(this.titlePanel);
+            this.Controls.Add(this.periodPanel);
             this.Controls.Add(this.yearLevelPanel);
             this.Controls.Add(this.semesterPanel);
-            this.Controls.Add(this.periodPanel);
+            this.Controls.Add(this.verifiedGradesPanel);
             this.Controls.Add(this.welcomePanel);
             this.Controls.Add(this.nonVerifiedGradesPanel);
-            this.Controls.Add(this.verifiedGradesPanel);
             this.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 8F);
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "studentForm";
@@ -823,12 +782,12 @@
             this.welcomePanel.PerformLayout();
             this.verifiedGradesPanel.ResumeLayout(false);
             this.verifiedGradesPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.verifiedPerformance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verifiedGrades)).EndInit();
             this.nonVerifiedGradesPanel.ResumeLayout(false);
             this.nonVerifiedGradesPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nonverifiedPerformance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nonverifiedGrades)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.verifiedPerformance)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.verifiedGrades)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -879,9 +838,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn lab_activities;
         private System.Windows.Forms.DataGridViewTextBoxColumn midterm_exam;
         private System.Windows.Forms.DataGridViewTextBoxColumn midterm_grade;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridView verifiedPerformance;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -892,7 +848,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridView verifiedGrades;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn3;
     }
 }

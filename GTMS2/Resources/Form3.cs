@@ -16,13 +16,24 @@ namespace GTMS2.Resources
     {
 
         private string empName;
-        
+        private bool canSwitchToInstructor;
 
-        public adminForm(string empName)
+
+        public adminForm(string empName, bool canSwitchToInstructor)
         {
             InitializeComponent();
-            placeholderName.Text = empName; 
+            this.empName = empName;
+            this.canSwitchToInstructor = canSwitchToInstructor;
+
+            placeholderName.Text = empName;
+            switchUser.Visible = canSwitchToInstructor;
+
+            // Initialize Data and UI
             SetupDatabaseBinding();
+
+            // Wire up event handlers for the Grids so they track edits
+            employeeInfo.CellValueChanged += (s, e) => ToggleButtons(saveChangesUser, cancelChangesUser, true);
+            courses.CellValueChanged += (s, e) => ToggleButtons(saveChangesCourses, cancelChangesCourses, true);
         }
 
         string connString = "server=localhost;database=gtms2;uid=root;pwd=;";
@@ -55,28 +66,25 @@ namespace GTMS2.Resources
             ToggleButtons(saveChangesCourses, cancelChangesCourses, false);
         }
 
-        private string GetPasskeyFromDb(string settingName)
+        private string GetPasskeyFromDb(string keyName)
         {
             using (MySqlConnection conn = new MySqlConnection(connString))
             {
                 conn.Open();
-                string query = "SELECT passkey_value FROM system_settings WHERE setting_name = @name";
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@name", settingName);
-                return cmd.ExecuteScalar()?.ToString();
+                var cmd = new MySqlCommand("SELECT passkey_value FROM system_settings WHERE setting_name = @name", conn);
+                cmd.Parameters.AddWithValue("@name", keyName);
+                return cmd.ExecuteScalar()?.ToString() ?? "0000"; // Fallback default
             }
         }
 
-        // Helper method to update passkey in DB
-        private void UpdatePasskeyInDb(string settingName, string newPin)
+        private void UpdatePasskeyInDb(string keyName, string newValue)
         {
             using (MySqlConnection conn = new MySqlConnection(connString))
             {
                 conn.Open();
-                string query = "UPDATE system_settings SET passkey_value = @pin WHERE setting_name = @name";
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@pin", newPin);
-                cmd.Parameters.AddWithValue("@name", settingName);
+                var cmd = new MySqlCommand("UPDATE system_settings SET passkey_value = @val WHERE setting_name = @name", conn);
+                cmd.Parameters.AddWithValue("@val", newValue);
+                cmd.Parameters.AddWithValue("@name", keyName);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -84,42 +92,28 @@ namespace GTMS2.Resources
         // Logic for the buttons
         private void HandlePasskeyChange(string roleName, string settingKey)
         {
-            // 1. "Are you sure?"
-            DialogResult confirm = MessageBox.Show($"Are you sure you want to change the {roleName} passkey?",
-                "Confirm Change", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (confirm == DialogResult.Yes)
+            // Step 1: Confirmation
+            if (MessageBox.Show($"Are you sure you want to change the {roleName} passkey?", "Confirm",
+                MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                // 2. "Enter current passkey"
-                string currentInput = Interaction.InputBox("Enter current passkey:", "Verification", "");
-                string actualCurrent = GetPasskeyFromDb(settingKey);
-
-                if (currentInput == actualCurrent)
+                // Step 2: Verify Current
+                string current = Interaction.InputBox("Enter current passkey:", "Verify Identity", "");
+                if (current == GetPasskeyFromDb(settingKey))
                 {
-                    // 3. "Enter new passkey"
-                    string newPin = Interaction.InputBox("Enter new passkey:", "New Passkey", "");
-
-                    if (!string.IsNullOrWhiteSpace(newPin))
+                    // Step 3: Get New
+                    string newKey = Interaction.InputBox("Enter new passkey:", "Update", "");
+                    if (!string.IsNullOrWhiteSpace(newKey))
                     {
-                        // 4. Save Changes or Cancel
-                        DialogResult saveConfirm = MessageBox.Show("Save changes?", "Final Step",
-                            MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-
-                        if (saveConfirm == DialogResult.OK)
+                        // Step 4: Final Save/Cancel
+                        if (MessageBox.Show("Save new passkey?", "Confirm Save",
+                            MessageBoxButtons.OKCancel) == DialogResult.OK)
                         {
-                            UpdatePasskeyInDb(settingKey, newPin);
-                            MessageBox.Show($"{roleName} Passkey updated successfully!");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Change cancelled.");
+                            UpdatePasskeyInDb(settingKey, newKey);
+                            MessageBox.Show("Passkey updated!");
                         }
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Incorrect current passkey. Access denied.");
-                }
+                else { MessageBox.Show("Verification failed."); }
             }
         }
 
@@ -238,7 +232,34 @@ namespace GTMS2.Resources
 
         private void switchUser_Click(object sender, EventArgs e)
         {
+            // 1. Ask for Instructor Passkey
+            string input = Microsoft.VisualBasic.Interaction.InputBox("Enter Instructor Passkey to Switch:", "Security Check", "");
 
+            if (input == GetPasskeyFromDb("instructor_pin"))
+            {
+                instructorForm iForm = new instructorForm(empName, true);
+                iForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Passkey!");
+            }
+        }
+
+        private void logout_Click(object sender, EventArgs e)
+        {
+            // Ask for confirmation before logging out
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                // Option A: If your login form is the 'Main' entry point and currently hidden
+                // Application.OpenForms["loginFormName"].Show(); 
+
+                // Option B: Close this form and return to the login screen
+                this.Close();
+            }
         }
     }
 }

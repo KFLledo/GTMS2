@@ -56,6 +56,10 @@
             this.placeholderName = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.nonVerifiedGradesPanel = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.searchBoxNonverified = new System.Windows.Forms.TextBox();
+            this.cancelChangesNonverified = new System.Windows.Forms.Button();
+            this.saveChangesNonverified = new System.Windows.Forms.Button();
             this.returnButton = new System.Windows.Forms.Button();
             this.nonVerifiedPerformance = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,6 +73,8 @@
             this.uploadaswell = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.verifiedGradesPanel = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.searchboxVerified = new System.Windows.Forms.TextBox();
             this.returnButton2 = new System.Windows.Forms.Button();
             this.cancelChangesVerified = new System.Windows.Forms.Button();
             this.saveChangesVerified = new System.Windows.Forms.Button();
@@ -83,12 +89,6 @@
             this.gradeVerified = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitsVerified = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
-            this.cancelChangesNonverified = new System.Windows.Forms.Button();
-            this.saveChangesNonverified = new System.Windows.Forms.Button();
-            this.searchBoxNonverified = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.searchboxVerified = new System.Windows.Forms.TextBox();
             this.titlePanel.SuspendLayout();
             this.yearLevelPanel.SuspendLayout();
             this.semesterPanel.SuspendLayout();
@@ -140,6 +140,7 @@
             this.logout.TabIndex = 2;
             this.logout.Text = "Log Out";
             this.logout.UseVisualStyleBackColor = false;
+            this.logout.Click += new System.EventHandler(this.logout_Click);
             // 
             // label1
             // 
@@ -491,6 +492,53 @@
             this.nonVerifiedGradesPanel.TabIndex = 15;
             this.nonVerifiedGradesPanel.Visible = false;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F);
+            this.label9.Location = new System.Drawing.Point(60, 169);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(235, 42);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Search student:";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // searchBoxNonverified
+            // 
+            this.searchBoxNonverified.Location = new System.Drawing.Point(301, 184);
+            this.searchBoxNonverified.Name = "searchBoxNonverified";
+            this.searchBoxNonverified.Size = new System.Drawing.Size(764, 26);
+            this.searchBoxNonverified.TabIndex = 15;
+            this.searchBoxNonverified.TextChanged += new System.EventHandler(this.searchBoxNonverified_TextChanged);
+            // 
+            // cancelChangesNonverified
+            // 
+            this.cancelChangesNonverified.BackColor = System.Drawing.Color.Crimson;
+            this.cancelChangesNonverified.Enabled = false;
+            this.cancelChangesNonverified.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F);
+            this.cancelChangesNonverified.ForeColor = System.Drawing.Color.White;
+            this.cancelChangesNonverified.Location = new System.Drawing.Point(1103, 416);
+            this.cancelChangesNonverified.Name = "cancelChangesNonverified";
+            this.cancelChangesNonverified.Size = new System.Drawing.Size(270, 59);
+            this.cancelChangesNonverified.TabIndex = 14;
+            this.cancelChangesNonverified.Text = "Cancel Changes";
+            this.cancelChangesNonverified.UseVisualStyleBackColor = false;
+            this.cancelChangesNonverified.Click += new System.EventHandler(this.cancelChangesNonverified_Click);
+            // 
+            // saveChangesNonverified
+            // 
+            this.saveChangesNonverified.BackColor = System.Drawing.Color.DarkGreen;
+            this.saveChangesNonverified.Enabled = false;
+            this.saveChangesNonverified.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveChangesNonverified.ForeColor = System.Drawing.Color.White;
+            this.saveChangesNonverified.Location = new System.Drawing.Point(1103, 300);
+            this.saveChangesNonverified.Name = "saveChangesNonverified";
+            this.saveChangesNonverified.Size = new System.Drawing.Size(270, 59);
+            this.saveChangesNonverified.TabIndex = 13;
+            this.saveChangesNonverified.Text = "Save Changes";
+            this.saveChangesNonverified.UseVisualStyleBackColor = false;
+            this.saveChangesNonverified.Click += new System.EventHandler(this.saveChangesNonverified_Click);
+            // 
             // returnButton
             // 
             this.returnButton.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 26F);
@@ -626,6 +674,24 @@
             this.verifiedGradesPanel.Size = new System.Drawing.Size(1393, 769);
             this.verifiedGradesPanel.TabIndex = 14;
             this.verifiedGradesPanel.Visible = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F);
+            this.label10.Location = new System.Drawing.Point(66, 168);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(235, 42);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "Search student:";
+            // 
+            // searchboxVerified
+            // 
+            this.searchboxVerified.Location = new System.Drawing.Point(307, 183);
+            this.searchboxVerified.Name = "searchboxVerified";
+            this.searchboxVerified.Size = new System.Drawing.Size(764, 26);
+            this.searchboxVerified.TabIndex = 17;
+            this.searchboxVerified.TextChanged += new System.EventHandler(this.searchboxVerified_TextChanged);
             // 
             // returnButton2
             // 
@@ -771,71 +837,6 @@
             this.label8.Size = new System.Drawing.Size(398, 91);
             this.label8.TabIndex = 3;
             this.label8.Text = "Verify Grades";
-            // 
-            // cancelChangesNonverified
-            // 
-            this.cancelChangesNonverified.BackColor = System.Drawing.Color.Crimson;
-            this.cancelChangesNonverified.Enabled = false;
-            this.cancelChangesNonverified.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F);
-            this.cancelChangesNonverified.ForeColor = System.Drawing.Color.White;
-            this.cancelChangesNonverified.Location = new System.Drawing.Point(1103, 416);
-            this.cancelChangesNonverified.Name = "cancelChangesNonverified";
-            this.cancelChangesNonverified.Size = new System.Drawing.Size(270, 59);
-            this.cancelChangesNonverified.TabIndex = 14;
-            this.cancelChangesNonverified.Text = "Cancel Changes";
-            this.cancelChangesNonverified.UseVisualStyleBackColor = false;
-            this.cancelChangesNonverified.Click += new System.EventHandler(this.cancelChangesNonverified_Click);
-            // 
-            // saveChangesNonverified
-            // 
-            this.saveChangesNonverified.BackColor = System.Drawing.Color.DarkGreen;
-            this.saveChangesNonverified.Enabled = false;
-            this.saveChangesNonverified.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveChangesNonverified.ForeColor = System.Drawing.Color.White;
-            this.saveChangesNonverified.Location = new System.Drawing.Point(1103, 300);
-            this.saveChangesNonverified.Name = "saveChangesNonverified";
-            this.saveChangesNonverified.Size = new System.Drawing.Size(270, 59);
-            this.saveChangesNonverified.TabIndex = 13;
-            this.saveChangesNonverified.Text = "Save Changes";
-            this.saveChangesNonverified.UseVisualStyleBackColor = false;
-            this.saveChangesNonverified.Click += new System.EventHandler(this.saveChangesNonverified_Click);
-            // 
-            // searchBoxNonverified
-            // 
-            this.searchBoxNonverified.Location = new System.Drawing.Point(301, 184);
-            this.searchBoxNonverified.Name = "searchBoxNonverified";
-            this.searchBoxNonverified.Size = new System.Drawing.Size(764, 26);
-            this.searchBoxNonverified.TabIndex = 15;
-            this.searchBoxNonverified.TextChanged += new System.EventHandler(this.searchBoxNonverified_TextChanged);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F);
-            this.label9.Location = new System.Drawing.Point(60, 169);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(235, 42);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Search student:";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 18F);
-            this.label10.Location = new System.Drawing.Point(66, 168);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(235, 42);
-            this.label10.TabIndex = 18;
-            this.label10.Text = "Search student:";
-            // 
-            // searchboxVerified
-            // 
-            this.searchboxVerified.Location = new System.Drawing.Point(307, 183);
-            this.searchboxVerified.Name = "searchboxVerified";
-            this.searchboxVerified.Size = new System.Drawing.Size(764, 26);
-            this.searchboxVerified.TabIndex = 17;
-            this.searchboxVerified.TextChanged += new System.EventHandler(this.searchboxVerified_TextChanged);
             // 
             // instructorForm
             // 
